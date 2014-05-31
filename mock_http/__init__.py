@@ -406,10 +406,7 @@ class MockHandler(RequestHandler):
 
     @property
     def all_arguments(self):
-        r = dict()
-        for k in self.request.arguments.iterkeys():
-            v = self.get_argument(name=k)
-            r[k]=v
+        r = dict(self.request.arguments)
         return r
 
     def on_request(self):
